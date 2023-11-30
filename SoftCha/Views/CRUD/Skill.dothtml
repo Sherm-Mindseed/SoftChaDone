@@ -1,0 +1,30 @@
+﻿@viewModel SoftCha.ViewModels.CRUD.SkillViewModel, SoftCha
+@masterPage Views/MasterPage.dotmaster
+@import SoftCha.Resources
+<dot:Content ContentPlaceHolderID="MainContent">
+
+
+    <div class="page-center">
+        <div class="page-grid-top">
+            <div class="student-image"></div>
+            <h1>Skill List</h1>
+
+            <dot:RouteLink Text="{resource: Texts.Label_NewStudent}" RouteName="CRUD_Skill_Create" class="page-button btn-add btn-long" />
+
+        </div>
+        <dot:GridView DataSource="{value: Skills}" class="page-grid">
+            <Columns>
+                <dot:GridViewTextColumn ValueBinding="{value: Name}" HeaderText="{resource: Texts.Label_Firstname}" />
+                <dot:GridViewTemplateColumn>
+                    <dot:RouteLink Text="{resource: Texts.Label_Detail}" RouteName="CRUD_Skill_Detail" Param-Id="{{value: idskills}}" />
+                </dot:GridViewTemplateColumn>
+                <dot:GridViewTemplateColumn>
+                    <dot:RouteLink Text="{resource: Texts.Label_Edit}" RouteName="CRUD_Skill_Edit" Param-Id="{{value: idskills}}" />
+                </dot:GridViewTemplateColumn>
+            </Columns>
+            <EmptyDataTemplate>
+                There are no registered Skills.
+            </EmptyDataTemplate>
+        </dot:GridView>
+    </div>
+</dot:Content>

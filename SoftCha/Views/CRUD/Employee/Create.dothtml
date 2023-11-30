@@ -1,0 +1,73 @@
+﻿@viewModel SoftCha.ViewModels.CRUD.Employee.CreateViewModel, SoftCha
+@masterPage Views/MasterPage.dotmaster
+@import SoftCha.Resources
+
+
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="page-center">
+        <dot:RouteLink RouteName="CRUD_Employee" Text="Go back" class="page-button btn-back btn-long"/>
+        <form class="page-box"
+              Validator.InvalidCssClass="has-error"
+              Validator.SetToolTipText="true">
+
+            <h1>{{resource: Texts.Title_Create}}</h1>
+            <div Validator.Value="{value: Employee.name}"
+                 class="page-input-box">
+                {{resource: Texts.Label_Firstname}}:
+                <dot:TextBox Text="{value: Employee.name}" class="page-input" />
+            </div>
+
+            <div Validator.Value="{value: Employee.surname}"
+                 class="page-input-box">
+                {{resource: Texts.Label_Lastname}}:
+                <dot:TextBox Text="{value: Employee.surname}" class="page-input" />
+            </div>
+
+            <div Validator.Value="{value: Employee.hired}"
+                 class="page-input-box">
+                {{resource: Texts.Label_EnrollmentDate}}:
+                <dot:TextBox Text="{value: Employee.hired}"
+                             ValueType="DateTime"
+                             FormatString="dd/MM/yyyy"
+                             class="page-input" />
+            </div>
+
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+                <div Validator.Value="{value: sAdd}"
+                     class="page-input-box">
+                    <dot:TextBox Text="{value: sAdd}" class="page-input" />
+                    <dot:Button Text="Add A Skill" Click="{command: AddNewSkill(sAdd)}" style="margin-right: 5px;"class="page-button" />
+                </div>
+                <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+                    <h3>Available Skills</h3>
+                    <div style="box-shadow: 0px 0px 10px #aaa; padding: 10px;">
+                        <dot:Repeater DataSource="{value: SourceList}">
+                            <div class="fade-in">
+                                <dot:Button Text="{value: Name}" Click="{command: _root.AddToTargetList(_this)}" style="margin-right: 5px;" />
+                            </div>
+                        </dot:Repeater>
+                    </div>
+                </div>
+
+                <div style="border: 1px solid #ccc; padding: 10px;">
+                    <h3>Employee's skills</h3>
+                    <ul style="box-shadow: 0px 0px 10px #aaa; padding: 10px;">
+                        <dot:Repeater DataSource="{value: TargetList}">
+                            <li class="fade-out" style="margin-bottom: 5px;">
+                                <dot:Button Text={value: Name} Click="{command: _root.RemoveFromTargetList(_this)}" style="margin-left: 5px;" />
+                            </li>
+                        </dot:Repeater>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn-container">
+                <dot:Button Text="{resource: Texts.Label_Add}" Click="{command: AddStudent()}" class="page-button" IsSubmitButton />
+            </div>
+
+
+
+        </form>
+    </div>
+</dot:Content>
+

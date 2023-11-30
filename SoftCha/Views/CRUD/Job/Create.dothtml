@@ -1,0 +1,24 @@
+﻿@viewModel SoftCha.ViewModels.CRUD.Job.CreateViewModel, SoftCha
+@masterPage Views/MasterPage.dotmaster
+@import SoftCha.Resources
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="page-center">
+        <dot:RouteLink RouteName="CRUD_Job" Text="Go back" class="page-button btn-back btn-long"/>
+        <form class="page-box" 
+             Validator.InvalidCssClass="has-error"
+             Validator.SetToolTipText="true">
+
+            <h1>{{resource: Texts.Title_Create}}</h1>
+            <div Validator.Value="{value: Job.JobName}"
+                 class="page-input-box">
+                Name:
+                <dot:TextBox Text="{value: Job.JobName}" class="page-input"/>
+            </div
+            <div class="btn-container">
+                <dot:Button Text="{resource: Texts.Label_Add}" Click="{command: AddStudent()}" class="page-button" IsSubmitButton />
+            </div>
+        </form>
+    </div>
+</dot:Content>
+

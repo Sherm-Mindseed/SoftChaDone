@@ -1,0 +1,35 @@
+﻿@viewModel SoftCha.ViewModels.CRUD.Skill.DetailViewModel, SoftCha
+@masterPage Views/MasterPage.dotmaster
+@import SoftCha.Resources
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <div class="page-center">
+
+        <dot:RouteLink RouteName="CRUD_Skill" Text="Skill list" class="page-button btn-back btn-long"/>
+
+        <div class="page-box">
+            <h1>{{resource: Texts.Title_Detail}}</h1>
+            
+            <div class="page-input-box">
+                {{resource: Texts.Label_Firstname}}
+                <span class="input-text-only">{{value: Skill.Name}}</span>
+            </div>
+
+            <div class="page-input-box">
+                Skill Description:
+                <span class="input-text-only">{{value: Skill.Desc}}</span>
+            </div>
+
+            <div class="page-input-box">
+                Created:
+                <span class="input-text-only"><dot:Literal Text="{{value: Skill.Created}}" FormatString="dd/MM/yyyy" /></span>
+            </div>
+            <div class="btn-container"
+    <dot:Button Click="{command: DeleteUser()}" Text="Delete" class="page-button" />
+</div>
+            
+        </div>
+    </div>
+</dot:Content>
+

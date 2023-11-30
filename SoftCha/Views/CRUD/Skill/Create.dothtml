@@ -1,0 +1,40 @@
+﻿@viewModel SoftCha.ViewModels.CRUD.Skill.CreateViewModel, SoftCha
+@masterPage Views/MasterPage.dotmaster
+@import SoftCha.Resources
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="page-center">
+        <dot:RouteLink RouteName="CRUD_Skill" Text="Go back" class="page-button btn-back btn-long"/>
+        <form class="page-box" 
+             Validator.InvalidCssClass="has-error"
+             Validator.SetToolTipText="true">
+
+            <h1>{{resource: Texts.Title_Create}}</h1>
+            <div Validator.Value="{value: Skill.Name}"
+                 class="page-input-box">
+                Name:
+                <dot:TextBox Text="{value: Skill.Name}" class="page-input"/>
+            </div>
+
+
+            <div Validator.Value="{value: Skill.Created}"
+                 class="page-input-box">
+                Created:
+                <dot:TextBox Text="{value: Skill.Created}" 
+                             ValueType="DateTime" 
+                             FormatString="dd/MM/yyyy"
+                             class="page-input"
+                             disabled/>
+            </div>
+            <div Validator.Value="{value: Skill.Desc}" class="page-input-box">
+                Skill Description:
+                <dot:TextBox Text="{value: Skill.Desc}" class="page-input" />
+            </div>
+
+            <div class="btn-container">
+                <dot:Button Text="{resource: Texts.Label_Add}" Click="{command: AddStudent()}" class="page-button" IsSubmitButton />
+            </div>
+        </form>
+    </div>
+</dot:Content>
+

@@ -1,0 +1,12 @@
+﻿@viewModel SoftCha.ViewModels.DefaultViewModel, SoftCha
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="page-center">
+        <dot:RouteLink RouteName="CRUD_Employee" Text="View Employees" class="page-button" />
+        <dot:RouteLink RouteName="CRUD_Skill" Text="View Skills" class="page-button" />
+        <dot:RouteLink RouteName="CRUD_Job" Text="View Jobs" class="page-button" />
+    </div>
+
+</dot:Content>
+
